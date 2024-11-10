@@ -1,22 +1,3 @@
-"""
-  Copyright (C) 2023 tghuy
-
-  This file is part of VN-Law-Advisor.
-
-  VN-Law-Advisor is free software: you can redistribute it and/or modify
-  it under the terms of the GNU General Public License as published by
-  the Free Software Foundation, either version 3 of the License, or
-  (at your option) any later version.
-
-  VN-Law-Advisor is distributed in the hope that it will be useful,
-  but WITHOUT ANY WARRANTY; without even the implied warranty of
-  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-  GNU General Public License for more details.
-
-  You should have received a copy of the GNU General Public License
-  along with VN-Law-Advisor.  If not, see <http://www.gnu.org/licenses/>.
-"""
-
 from models.models import *
 from bs4 import BeautifulSoup
 from helper import *
@@ -26,7 +7,7 @@ import uuid
 
 # CREATE-DROP Tất cả dữ liệu
 # db.drop_tables([PDMucLienQuan ,PDTable, PDFile , PDDieu, PDChuong, PDDeMuc, PDChuDe])
-db.create_tables([PDMucLienQuan ,PDTable, PDFile, PDDieu, PDChuong , PDDeMuc, PDChuDe])
+# db.create_tables([PDMucLienQuan ,PDTable, PDFile, PDDieu, PDChuong , PDDeMuc, PDChuDe])
 
 checkpoint = "d8e4a3a0-254c-4593-967c-214ae12bcb0f.html"
 
@@ -110,13 +91,6 @@ for file in os.listdir(demuc_directory):
 
         # Insert chương
         print(f'Insert {len(demuc_chuong)} chương của đề mục {file_name}')
-        # Tạo một chương giả nếu không có chương
-        # if len(chuongs_data) == 0:
-        #     chuong_data = PDChuong(ten="",
-        #                            chuong_id= uuid.uuid4(), chimuc="0",
-        #                            stt=0,
-        #                            demuc_id=file_name.split(".")[0])
-        #     chuongs_data.append(chuong_data)
         
         demuc_dieus = [node for node in demuc_nodes if node not in demuc_chuong]
         print(f'Đề mục {file_name} có {len(demuc_chuong)} chương và {len(demuc_dieus)} điều')

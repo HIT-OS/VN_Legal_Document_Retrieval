@@ -1,0 +1,13 @@
+google-generativeai
+langchain-community
+langchain
+chromadb
+sentence-transformers
+flask
+flask_cors
+torch
+pyMySql[rsa]
+peewee
+python-dotenv
+PyJWT
+waitress

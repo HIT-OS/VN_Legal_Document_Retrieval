@@ -58,6 +58,7 @@ for i in range(len(df_vb)):
 
     if i % 10 == 0:
         save_data(list_id, list_noidung)
+        print("Lưu thành công")
         list_id.clear()
         list_noidung.clear()
     print("Succesfully")

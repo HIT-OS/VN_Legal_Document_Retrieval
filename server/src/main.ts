@@ -44,7 +44,7 @@ async function bootstrap() {
   );
 
   const swaggerConfig = new DocumentBuilder()
-    .setTitle('Hedum services')
+    .setTitle(appConfig.name)
     .setDescription('API to handle everything')
     .setVersion('1.0')
     .addBearerAuth()

@@ -1,0 +1,12 @@
+# docker compose -f docker-compose.yml up -d --build
+version: '3'
+services:
+  vn-lda-server:
+    build:
+      context: .
+      target: development
+    container_name: vn_lda_server
+    env_file:
+      - .env
+    ports:
+      - '3000:3000'

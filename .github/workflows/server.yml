@@ -24,10 +24,6 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_PASSWORD }}
 
-      - name: Create .env file
-        if: steps.filter.outputs.server == 'true'
-        run: echo "${{ secrets.SERVER_ENV }}" > server/.env
-
       - name: Build and push server
         if: steps.filter.outputs.server == 'true'
         uses: docker/build-push-action@v5
@@ -48,4 +44,4 @@ jobs:
           script: |
             docker pull ${{ secrets.DOCKERHUB_USERNAME }}/vn_lda_server:latest
             docker rm -f vn_lda_server
-            docker run -d -p 3000:3000 --name vn_lda_server ${{ secrets.DOCKERHUB_USERNAME }}/vn_lda_server:latest
+            docker run -d --name vn_lda_server -e DATABASE_URL=${{ secrets.DATABASE_URL }} -e CRAWL_API_URL=${{ secrets.CRAWL_API_URL }} -p 3000:3000 ${{ secrets.DOCKERHUB_USERNAME }}/vn_lda_server:latest

@@ -1,4 +1,4 @@
 import { AuthController } from './auth.controller';
-import { UserController } from './user.controller';
+import { QuestionController } from './question.controller';
 
-export const HttpControllers = [AuthController, UserController];
+export const HttpControllers = [AuthController, QuestionController];

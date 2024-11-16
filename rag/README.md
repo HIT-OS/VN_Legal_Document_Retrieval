@@ -23,6 +23,7 @@ Dưới đây là thiết kế cho hệ thống lưu trữ văn bản pháp lu�
 ## 🤖 Hệ Thống Hỏi Đáp
 
 Thiết kế của hệ thống hỏi đáp:
+
 ![Hệ Thống Hỏi Đáp](./image/qa.png)
 
 ---

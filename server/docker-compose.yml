@@ -6,7 +6,8 @@ services:
       context: .
       target: development
     container_name: vn_lda_server
-    env_file:
-      - .env
+    environment:
+      - DATABASE_URL: mysql://user:pass@host:port/vn_lda_server?schema=public
+      - CRAWL_API_URL: https://example.com
     ports:
       - '3000:3000'

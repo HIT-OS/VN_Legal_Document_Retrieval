@@ -9,6 +9,10 @@ import { AppConstants } from '@src/common/constants';
 export class UserPrismaRepository implements IUserRepository {
   constructor(private readonly prisma: PrismaService) {}
 
+  getById(userId: string): Promise<User> {
+    return this.prisma.user.findUnique({ where: { id: userId } });
+  }
+
   getByEmail(email: string): Promise<User> {
     return this.prisma.user.findUnique({ where: { email } });
   }

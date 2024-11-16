@@ -5,15 +5,11 @@
 
 <a href="https://github.com/HIT-OS/VN_Legal_Document_Retrieval/issues/new?assignees=&labels=&projects=&template=feature_request.md&title=RequestFeature:">Request Feature 👩‍💻</a>
 
-Ứng dụng hỗ trợ tra cứu, hỏi đáp tri thức pháp luật dựa trên Bộ pháp điển và CSDL văn bản QPPL Việt Nam.
+Ứng dụng hỗ trợ tra cứu, hỏi đáp tri thức pháp luật dựa trên Bộ pháp điển và CSDL văn bản QPPL Việt Nam. Mục tiêu là phát triển một hệ thống tra cứu, hỏi đáp tri thức pháp luật Việt Nam dựa trên các mô hình ngôn ngữ lớn cùng với nền tảng lowcode.
 
-Mục tiêu là phát triển một hệ thống tra cứu, hỏi đáp tri thức pháp luật Việt Nam. Dựa trên các mô hình ngôn ngữ lớn cùng với nền tảng lowcode.
+Dự án được open source theo giấy phép [GNU General Public License v3.0](https://www.gnu.org/licenses/gpl-3.0.en.html) bởi đội tác giả HIT-OS13. Để biết thêm chi tiết về cuộc thi, bạn có thể xem tại [đây](https://www.olp.vn/procon-pmmn/ph%E1%BA%A7n-m%E1%BB%81m-ngu%E1%BB%93n-m%E1%BB%9F).
 
-Dự án được open source theo giấy phép [GNU General Public License v3.0](https://www.gnu.org/licenses/gpl-3.0.en.html) bởi đội tác giả HIT-OS.
-
-Để biết thêm chi tiết về cuộc thi, bạn có thể xem tại [đây](https://vfossa.vn/tin-tuc/de-thi-phan-mem-nguon-mo-olp-2023-688.html).
-
-Link thuyết trình Canva tại cuộc thi [link]()
+Link thuyết trình Canva tại cuộc thi [link](https://www.canva.com/design/DAGWnmJZWjo/QKufW1WAumndxgjB55kEaw/edit)
 
 Slide bài thuyết trình tại cuộc thi dưới dạng PDF có thể được truy cập tại đây: [Slide]()
 
@@ -49,21 +45,14 @@ Project tập trung vào các chức năng chính như sau:
 
 Backend của hệ thống được thiết kế theo kiến trúc microservices, với các công nghệ sử dụng như sau:
 
--   [NextJS 14](https://nextjs.org/): Xây dựng web-app, hỗ trợ SEO, SSR, SSG.
--   [Kong API Gateway](https://konghq.com/kong/): API Gateway cho hệ thống.
--   [ExpressJS](https://expressjs.com/): Dựng API cho Auth Service.
--   [SpringBoot](https://spring.io/projects/spring-boot): Dựng API cho Law Service.
+-   [NestJS](https://nextjs.org/): Xây dựng web-app, hỗ trợ SEO, SSR, SSG.
 -   [Flask](https://flask.palletsprojects.com/en/2.0.x/): Dựng API cho Q&A - RAG Service.
 -   [LangChain](https://www.langchain.com/): Sử dụng để truy vấn các context là tri thức luật.
 -   [MySQL](https://www.mysql.com/): Cơ sở dữ liệu quan hệ.
 -   [Redis](https://redis.io/): Cơ sở dữ liệu NoSQL in-memory dạng key-value.
 -   [ChromaDB](https://www.trychroma.com/): Cơ sở dữ liệu embedding dạng vector.
--   [RabbitMQ](https://www.rabbitmq.com/): Message broker cho hệ thống.
 -   [Docker](https://www.docker.com/): Containerize các service.
 -   [Docker Compose](https://docs.docker.com/compose/): Quản lý các container.
--   [Prometheus](https://prometheus.io/): Monitor các metrics.
--   [Grafana](https://grafana.com/): WebUI hiển thị metrics.
--   [Transformer.js](https://github.com/xenova/transformers.js/): Thư viện transformer cho JS, load trực tiếp trên trình duyệt web.
 
 <img loading="lazy" src="./docs/images/system_architecture.svg" alt="Architecture" width="100%" height=600>
 
@@ -241,9 +230,9 @@ Mọi đóng góp của các bạn đều được trân trọng, đừng ngần
 
 ## Liên hệ
 
--   Phạm Đình Tiến:
--   Đặng Hoàng Phương:
--   Nguyễn Tiến Kiên:
+-   Phạm Đình Tiến: phamdt203@gmail.com
+-   Đặng Hoàng Phương: hoangphuong270703@gmail.com
+-   Nguyễn Tiến Kiên: tienkiennropro@gmail.com
 
 ## 📝 License
 

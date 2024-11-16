@@ -15,11 +15,15 @@ COPY . .
 # Build the application
 RUN yarn build
 
-# Remove the .env file after building
-RUN rm ./.env
+# Second Stage: Run the app
+FROM node:20-alpine AS development
 
-# Second Stage: Build process
-FROM build AS development
+WORKDIR /app
+
+# copy dist, node_modules package.json into the container
+COPY --from=build /dist ./dist
+COPY --from=build /node_modules ./node_modules
+COPY --from=build /package.json ./package.json
 
 EXPOSE 3000
 

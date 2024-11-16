@@ -47,4 +47,5 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
             docker pull ${{ secrets.DOCKERHUB_USERNAME }}/vn_lda_server:latest
-            docker run --rm -d -p 3000:3000 --name vn_lda_server ${{ secrets.DOCKERHUB_USERNAME }}/vn_lda_server:latest
+            docker rm -f vn_lda_server
+            docker run -d -p 3000:3000 --name vn_lda_server ${{ secrets.DOCKERHUB_USERNAME }}/vn_lda_server:latest

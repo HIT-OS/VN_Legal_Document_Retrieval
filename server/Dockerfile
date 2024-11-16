@@ -16,7 +16,7 @@ COPY . .
 RUN yarn build
 
 # Remove the .env file after building
-RUN rm .env
+RUN rm ./.env
 
 # Second Stage: Build process
 FROM build AS development

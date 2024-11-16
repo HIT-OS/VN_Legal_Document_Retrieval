@@ -9,7 +9,7 @@ export type AppConfig = {
 
 export default registerAs<AppConfig>('app-config', () => ({
   nodeEnv: process.env.NODE_ENV || 'development',
-  name: process.env.APP_NAME || 'app',
+  name: process.env.APP_NAME || 'VN_LDA_SERVER',
   port: process.env.APP_PORT ? parseInt(process.env.APP_PORT, 10) : 3000,
   apiPrefix: process.env.API_PREFIX || '/api/v1',
 }));

@@ -24,6 +24,10 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_PASSWORD }}
 
+      - name: Create .env file
+        if: steps.filter.outputs.auth-service == 'true'
+        run: echo "${{ secrets.SERVER_ENV }}" > server/.env
+
       - name: Build and push auth-service
         if: steps.filter.outputs.auth-service == 'true'
         uses: docker/build-push-action@v5

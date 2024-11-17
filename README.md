@@ -1,4 +1,4 @@
-# VN-Law-Advisor [![Demo]()]() [![Documentation]()]()
+# VN-Legal-Document
 
 <a href="https://github.com/HIT-OS/VN_Legal_Document_Retrieval/issues/new?assignees=&labels=&projects=&template=bug_report.md&title=%F0%9F%90%9B+Bug+Report%3A+">Bug Report ⚠️
 </a>
@@ -15,46 +15,53 @@ Slide bài thuyết trình tại cuộc thi dưới dạng PDF có thể đượ
 
 ## 🔎 Danh Mục
 
-1. [Giới Thiệu](#Giới-Thiệu)
-2. [Chức Năng](#chức-năng-chính)
-3. [Tổng Quan Hệ Thống](#👩‍💻-tổng-quan-hệ-thống)
-4. [Cấu Trúc Thư Mục](#cấu-trúc-thư-mục)
-5. [Hướng Dẫn Cài Đặt](#hướng-dẫn-cài-đặt)
-    - [📋 Yêu Cầu - Prerequisites](#yêu-cầu-📋)
-    - [🔨 Cài Đặt](#🔨-cài-đặt)
-6. [CI/CD](#ci/cd)
-7. [🙌 Đóng Góp](#🙌-đóng-góp-cho-dự-án)
-8. [📝 License](#📝-license)
+- [VN-Legal-Document](#vn-legal-document)
+  - [🔎 Danh Mục](#-danh-mục)
+  - [Giới Thiệu](#giới-thiệu)
+  - [Chức Năng Chính](#chức-năng-chính)
+  - [👩‍💻 Tổng Quan Hệ Thống](#-tổng-quan-hệ-thống)
+    - [RAG](#rag)
+    - [CI/CD](#cicd)
+  - [Cấu trúc thư mục](#cấu-trúc-thư-mục)
+  - [Hướng Dẫn Cài Đặt](#hướng-dẫn-cài-đặt)
+    - [Yêu Cầu 📋](#yêu-cầu-)
+    - [🔨 Cài Đặt](#-cài-đặt)
+      - [Chạy crawler lấy dữ liệu pháp điển và các van bản quy phạm pháp luật (optional):](#chạy-crawler-lấy-dữ-liệu-pháp-điển-và-các-van-bản-quy-phạm-pháp-luật-optional)
+    - [Chạy backend hệ thống](#chạy-backend-hệ-thống)
+    - [Chạy web-app](#chạy-web-app)
+  - [🙌 Đóng góp cho dự án](#-đóng-góp-cho-dự-án)
+  - [Liên hệ](#liên-hệ)
+  - [📝 License](#-license)
 
 ## Giới Thiệu
 
--   [Pháp điển](https://vi.wikipedia.org/wiki/Ph%C3%A1p_%C4%91i%E1%BB%83n) là tập hợp các quy phạm pháp luật đang còn hiệu lực của các văn bản quy phạm pháp luật do cơ quan nhà nước ở trung ương ban hành, từ Thông tư trở lên và trừ Hiến pháp.
--   [Cơ sở dữ liệu văn bản quy phạm pháp luật Việt Nam](https://quochoi.vn/csdlth/vanbanphapluat/Pages/Home.aspx) được xây dựng từ năm 2000, bao gồm các văn bản quy phạm pháp luật từ năm 1990 đến nay. Cơ sở dữ liệu này được cập nhật thường xuyên, đảm bảo tính toàn vẹn, đầy đủ và chính xác của các văn bản quy phạm pháp luật.
--   Tuy nhiên, do việc cập nhật không thường xuyên của pháp điển so với các văn bản quy phạm pháp luật, nên pháp điển hiện tại không đảm bảo tính toàn vẹn, đầy đủ và chính xác của các văn bản quy phạm pháp luật.
+- [Pháp điển](https://vi.wikipedia.org/wiki/Ph%C3%A1p_%C4%91i%E1%BB%83n) là tập hợp các quy phạm pháp luật đang còn hiệu lực của các văn bản quy phạm pháp luật do cơ quan nhà nước ở trung ương ban hành, từ Thông tư trở lên và trừ Hiến pháp.
+- [Cơ sở dữ liệu văn bản quy phạm pháp luật Việt Nam](https://quochoi.vn/csdlth/vanbanphapluat/Pages/Home.aspx) được xây dựng từ năm 2000, bao gồm các văn bản quy phạm pháp luật từ năm 1990 đến nay. Cơ sở dữ liệu này được cập nhật thường xuyên, đảm bảo tính toàn vẹn, đầy đủ và chính xác của các văn bản quy phạm pháp luật.
+- Tuy nhiên, do việc cập nhật không thường xuyên của pháp điển so với các văn bản quy phạm pháp luật, nên pháp điển hiện tại không đảm bảo tính toàn vẹn, đầy đủ và chính xác của các văn bản quy phạm pháp luật.
 
 ## Chức Năng Chính
 
 Project tập trung vào các chức năng chính như sau:
 
--   🤖 Trả lời các câu hỏi về pháp luật của người dùng.
--   🔍 Hệ thống tra cứu các pháp điển, văn bản quy phạm pháp luật: chỉ mục, liên kết các điều mục, các bảng và biểu mẫu.
--   📖 Tóm tắt văn bản, hỗ trợ người dùng trong lúc tra cứu.
--   📝 Gợi ý văn bản quy phạm pháp luật theo từ khóa tìm kiếm, nhận đóng góp để cải thiện gợi ý.
+- 🤖 Trả lời các câu hỏi về pháp luật của người dùng.
+- 🔍 Hệ thống tra cứu các pháp điển, văn bản quy phạm pháp luật: chỉ mục, liên kết các điều mục, các bảng và biểu mẫu.
+- 📖 Tóm tắt văn bản, hỗ trợ người dùng trong lúc tra cứu.
+- 📝 Gợi ý văn bản quy phạm pháp luật theo từ khóa tìm kiếm, nhận đóng góp để cải thiện gợi ý.
 
 ## 👩‍💻 Tổng Quan Hệ Thống
 
 Backend của hệ thống được thiết kế theo kiến trúc microservices, với các công nghệ sử dụng như sau:
 
--   [NestJS](https://nextjs.org/): Xây dựng web-app, hỗ trợ SEO, SSR, SSG.
--   [Flask](https://flask.palletsprojects.com/en/2.0.x/): Dựng API cho Q&A - RAG Service.
--   [LangChain](https://www.langchain.com/): Sử dụng để truy vấn các context là tri thức luật.
--   [MySQL](https://www.mysql.com/): Cơ sở dữ liệu quan hệ.
--   [Redis](https://redis.io/): Cơ sở dữ liệu NoSQL in-memory dạng key-value.
--   [ChromaDB](https://www.trychroma.com/): Cơ sở dữ liệu embedding dạng vector.
--   [Docker](https://www.docker.com/): Containerize các service.
--   [Docker Compose](https://docs.docker.com/compose/): Quản lý các container.
+- [NestJS](https://nextjs.org/): Xây dựng web-app, hỗ trợ SEO, SSR, SSG.
+- [Flask](https://flask.palletsprojects.com/en/2.0.x/): Dựng API cho Q&A - RAG Service.
+- [LangChain](https://www.langchain.com/): Sử dụng để truy vấn các context là tri thức luật.
+- [MySQL](https://www.mysql.com/): Cơ sở dữ liệu quan hệ.
+- [Redis](https://redis.io/): Cơ sở dữ liệu NoSQL in-memory dạng key-value.
+- [ChromaDB](https://www.trychroma.com/): Cơ sở dữ liệu embedding dạng vector.
+- [Docker](https://www.docker.com/): Containerize các service.
+- [Docker Compose](https://docs.docker.com/compose/): Quản lý các container.
 
-<img loading="lazy" src="./docs/images/system_architecture.svg" alt="Architecture" width="100%" height=600>
+<!-- <img loading="lazy" src="./docs/images/system_architecture.svg" alt="Architecture" width="100%" height=600> -->
 
 ### RAG
 
@@ -68,17 +75,17 @@ Mô hình LLM chọn sử dụng là [phoGPT](./https://github.com/VinAIResearch
 
 Project CI/CD sử dụng Github và [Github Actions](https://docs.github.com/en/actions) để tự động hóa quá trình build và deploy. Quy trình như hình vẽ sau:
 
-![CI/CD]()
+<!-- ![CI/CD]() -->
 
 Các workflows của project được lưu tại: [.github/workflows](.github/workflows), với các workflow như sau:
 
--   [server.yaml](.github/workflows/server.yaml): Build docker for dockerhub
+- [server.yaml](.github/workflows/server.yaml): Build docker for dockerhub
 
 ## Cấu trúc thư mục
 
--   [Crawler](./law-crawler) - Crawl vào CSDL từ nguồn pháp điển Việt Nam.
--   [Server](./serve) - Chứa các mô hình, services, kiến trúc của hệ thống.
--   [Web](./web) - Giao diện người dùng.
+- [Crawler](./law-crawler) - Crawl vào CSDL từ nguồn pháp điển Việt Nam.
+- [Server](./serve) - Chứa các mô hình, services, kiến trúc của hệ thống.
+- [Web](./web) - Giao diện người dùng.
 
 ## Hướng Dẫn Cài Đặt
 
@@ -88,9 +95,9 @@ Tất cả các images build từ services backend bạn có thể tìm thấy t
 
 Để cài đặt và chạy được dự án, trước tiên bạn cần phải cài đặt các công cụ bên dưới. Hãy thực hiện theo các hướng dẫn cài đặt sau, lưu ý chọn hệ điều hành phù hợp với máy tính của bạn:
 
--   [Docker-Installation](https://docs.docker.com/get-docker/)
--   [Docker-Compose-Installation](https://docs.docker.com/compose/install/)
--   [NodeJS v18-Installation](https://nodejs.org/en/download/)
+- [Docker-Installation](https://docs.docker.com/get-docker/)
+- [Docker-Compose-Installation](https://docs.docker.com/compose/install/)
+- [NodeJS v18-Installation](https://nodejs.org/en/download/)
 
 > **Lưu ý:** NextJS 14 chỉ tương thích với NodeJS từ version 18 trở lên.
 
@@ -122,13 +129,13 @@ Và tiếp tục theo hướng dẫn trong thư mục law-crawler [README.md](./
 
 ### Chạy backend hệ thống
 
--   Đầu tiên, cd vào thư mục backend:
+- Đầu tiên, cd vào thư mục backend:
 
 ```bash
 cd server
 ```
 
--   Start các services với 1 lệnh docker-compose:
+- Start các services với 1 lệnh docker-compose:
 
 ```bash
 docker-compose up -d
@@ -230,9 +237,9 @@ Mọi đóng góp của các bạn đều được trân trọng, đừng ngần
 
 ## Liên hệ
 
--   Phạm Đình Tiến: phamdt203@gmail.com
--   Đặng Hoàng Phương: hoangphuong270703@gmail.com
--   Nguyễn Tiến Kiên: tienkiennropro@gmail.com
+- Phạm Đình Tiến: phamdt203@gmail.com
+- Đặng Hoàng Phương: hoangphuong270703@gmail.com
+- Nguyễn Tiến Kiên: tienkiennropro@gmail.com
 
 ## 📝 License
 

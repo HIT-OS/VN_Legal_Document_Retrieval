@@ -1,4 +1,5 @@
 # VN-Legal-Document
+[![Demo](https://img.shields.io/badge/Demo-2ea44f?style=for-the-badge)](http://hithaui.dhcn.vn:8080/) 
 
 <a href="https://github.com/HIT-OS/VN_Legal_Document_Retrieval/issues/new?assignees=&labels=&projects=&template=bug_report.md&title=%F0%9F%90%9B+Bug+Report%3A+">Bug Report ⚠️
 </a>
